@@ -1,3 +1,5 @@
 package-lock.json
 node_modules/
 yarn.lock
+dist/index.test.*
+dist/tsconfig.tsbuildinfo
