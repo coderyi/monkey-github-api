@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MonkeyGitHubAPI = void 0;
 class MonkeyGitHubAPI {
     constructor() {
-        this.searchUsers = async (start, page, location, language) => {
+        this.searchUsers = async (page, location, language) => {
             var list = [];
             let url = 'https://api.github.com/search/users?q=location:' + location + '+language:' + language + '&sort=followers&order=desc&page=' + page;
             if (location.length < 1) {
@@ -22,7 +22,7 @@ class MonkeyGitHubAPI {
             }
             return list;
         };
-        this.searchRepositories = async (start, page, language) => {
+        this.searchRepositories = async (page, language) => {
             var list = [];
             const response = await fetch('https://api.github.com/search/repositories?sort=stars&order=desc&page=' + page + '&q=language:' + language);
             const responseJson = await response.json();

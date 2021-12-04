@@ -11,6 +11,6 @@ export interface IMonkeyGitHubRepository {
     forks_count: number;
 }
 export declare class MonkeyGitHubAPI {
-    readonly searchUsers: (start: number, page: number, location: string, language: string) => Promise<IMonkeyGitHubUser[]>;
-    readonly searchRepositories: (start: number, page: number, language: string) => Promise<IMonkeyGitHubRepository[]>;
+    readonly searchUsers: (page: number, location: string, language: string) => Promise<IMonkeyGitHubUser[]>;
+    readonly searchRepositories: (page: number, language: string) => Promise<IMonkeyGitHubRepository[]>;
 }

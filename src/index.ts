@@ -13,7 +13,7 @@ export interface IMonkeyGitHubRepository {
 }
 
 export class MonkeyGitHubAPI {
-    public readonly searchUsers = async (start: number, page: number, location: string, language: string) => {
+    public readonly searchUsers = async (page: number, location: string, language: string) => {
         var list: IMonkeyGitHubUser[] = [];
         let url = 'https://api.github.com/search/users?q=location:'+location+'+language:'+language+'&sort=followers&order=desc&page='+page
         if (location.length < 1) {
@@ -33,7 +33,7 @@ export class MonkeyGitHubAPI {
         return list
     }
 
-    public readonly searchRepositories = async (start: number, page: number, language: string) => {
+    public readonly searchRepositories = async (page: number, language: string) => {
         var list: IMonkeyGitHubRepository[] = [];
 
         const response = await fetch('https://api.github.com/search/repositories?sort=stars&order=desc&page='+page+'&q=language:'+language)
